@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   								 A suitable for Objective - C and swift 3.0, NSArray, NSData, NSDictionary, UIColor, UILabel, UIView extension libraries
                    DESC
 
-  s.homepage     = "https://github.com/liujing0735/Extension.git"
+  s.homepage     = "https://github.com/liujing0735/JLExtension.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "5.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/liujing0735/Extension.git", :tag => "#{s.version.to_s}" }
+  s.source       = { :git => "https://github.com/liujing0735/JLExtension.git", :tag => "#{s.version.to_s}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

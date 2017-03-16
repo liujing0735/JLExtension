@@ -477,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JLExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonliu.JLExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,6 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JLExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonliu.JLExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -559,6 +561,7 @@
 				221E1B5C1E7A1B8100B41629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		221E1B5D1E7A1B8100B41629 /* Build configuration list for PBXNativeTarget "JLExtensionTests" */ = {
 			isa = XCConfigurationList;
@@ -567,6 +570,7 @@
 				221E1B5F1E7A1B8100B41629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		221E1B601E7A1B8100B41629 /* Build configuration list for PBXNativeTarget "JLExtensionUITests" */ = {
 			isa = XCConfigurationList;
@@ -575,6 +579,7 @@
 				221E1B621E7A1B8100B41629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
