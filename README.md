@@ -18,4 +18,4 @@ pod 'JLExtension','~> 0.0.1'
 
 step2:导入.h文件
 
-#import "JLExtension.h"
+#import <JLExtension/JLExtension.h>
