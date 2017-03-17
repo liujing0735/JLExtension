@@ -11,4 +11,11 @@
 
 @interface UIColor (Extension)
 
+
+/**
+ 产生随机颜色
+
+ @return 随机产生的颜色值
+ */
++ (UIColor *)randomColor;
 @end

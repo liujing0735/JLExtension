@@ -22,6 +22,7 @@
 		221E1B771E7A3BC100B41629 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1B6E1E7A3BC100B41629 /* UIColor+Extension.m */; };
 		221E1B781E7A3BC100B41629 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1B701E7A3BC100B41629 /* UILabel+Extension.m */; };
 		221E1B791E7A3BC100B41629 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1B721E7A3BC100B41629 /* UIView+Extension.m */; };
+		221E1BC81E7B8C3A00B41629 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		221E1B701E7A3BC100B41629 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		221E1B711E7A3BC100B41629 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		221E1B721E7A3BC100B41629 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		221E1BC61E7B8C3A00B41629 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +169,9 @@
 		221E1B631E7A3BC100B41629 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				221E1B661E7A3BC100B41629 /* JLExtension.h */,
 				221E1B641E7A3BC100B41629 /* CBPeripheral+Extension.h */,
 				221E1B651E7A3BC100B41629 /* CBPeripheral+Extension.m */,
-				221E1B661E7A3BC100B41629 /* JLExtension.h */,
 				221E1B671E7A3BC100B41629 /* NSArray+Extension.h */,
 				221E1B681E7A3BC100B41629 /* NSArray+Extension.m */,
 				221E1B691E7A3BC100B41629 /* NSData+Extension.h */,
@@ -181,6 +184,8 @@
 				221E1B701E7A3BC100B41629 /* UILabel+Extension.m */,
 				221E1B711E7A3BC100B41629 /* UIView+Extension.h */,
 				221E1B721E7A3BC100B41629 /* UIView+Extension.m */,
+				221E1BC61E7B8C3A00B41629 /* UIImage+Extension.h */,
+				221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				221E1B351E7A1B8000B41629 /* AppDelegate.m in Sources */,
 				221E1B761E7A3BC100B41629 /* NSDictionary+Extension.m in Sources */,
 				221E1B751E7A3BC100B41629 /* NSData+Extension.m in Sources */,
+				221E1BC81E7B8C3A00B41629 /* UIImage+Extension.m in Sources */,
 				221E1B321E7A1B8000B41629 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
