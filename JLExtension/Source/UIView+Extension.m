@@ -34,15 +34,32 @@
     self.layer.borderColor = [color CGColor];
 }
 
-- (void)autoLayoutWithView:(UIView *)view {
+- (void)autoLayoutWithView:(UIView *)view screenSize:(CGFloat)size {
+    CGFloat screenWidth;
+    CGFloat screenHeight;
+    
+    if (size == 3.5) {
+        screenWidth = 320;
+        screenHeight = 480;
+    }else if (size == 4.0) {
+        screenWidth = 320;
+        screenHeight = 568;
+    }else if (size == 4.7) {
+        screenWidth = 375;
+        screenHeight = 667;
+    }else if (size == 5.5) {
+        screenWidth = 414;
+        screenHeight = 736;
+    }
+    
     CGFloat autoSizeScaleX, autoSizeScaleY;
     
-    if(SCREEN_HEIGHT == 568){// 4寸屏
+    if(SCREEN_HEIGHT == screenHeight){// 4寸屏
         autoSizeScaleX = 1.0;
         autoSizeScaleY = 1.0;
     }else{
-        autoSizeScaleX = SCREEN_WIDTH/320;
-        autoSizeScaleY = SCREEN_HEIGHT/568;
+        autoSizeScaleX = SCREEN_WIDTH/screenWidth;
+        autoSizeScaleY = SCREEN_HEIGHT/screenHeight;
     }
     
     for (UIView *subView in view.subviews) {
@@ -59,13 +76,21 @@
         subView.frame = rect;
         
         if ([subView.subviews count] > 0) {
-            [self autoLayoutWithView:subView];
+            [self autoLayoutWithView:subView screenSize:size];
         }
     }
 }
 
 - (void)xibAutoLayout {
-    [self autoLayoutWithView:self];
+    [self autoLayoutWithView:self screenSize:4.0];
+}
+
+- (void)xibAutoLayoutWith47 {
+    [self autoLayoutWithView:self screenSize:4.7];
+}
+
+- (void)xibAutoLayoutWith55 {
+    [self autoLayoutWithView:self screenSize:5.5];
 }
 
 @end

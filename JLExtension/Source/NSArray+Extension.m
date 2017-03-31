@@ -10,6 +10,19 @@
 
 @implementation NSArray (Extension)
 
+- (NSInteger)intAtIndex:(NSUInteger)index {
+    if ([self count] > index) {
+        id value = [self objectAtIndex:index];
+        if ([value isKindOfClass:[NSString class]]) {
+            return [(NSString *)value integerValue];
+        }
+        if ([value isKindOfClass:[NSNumber class]]) {
+            return [(NSNumber *)value integerValue];
+        }
+    }
+    return 0;
+}
+
 - (double)doubleAtIndex:(NSUInteger)index {
     if ([self count] > index) {
         id value = [self objectAtIndex:index];

@@ -11,7 +11,6 @@
 
 @interface UIColor (Extension)
 
-
 /**
  产生随机颜色
 

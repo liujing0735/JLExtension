@@ -17,4 +17,6 @@
 - (void)cornerRadius:(CGFloat)radius color:(UIColor *)color width:(CGFloat)width;
 
 - (void)xibAutoLayout;
+- (void)xibAutoLayoutWith47;
+- (void)xibAutoLayoutWith55;
 @end

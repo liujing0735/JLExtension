@@ -23,6 +23,7 @@
 		221E1B781E7A3BC100B41629 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1B701E7A3BC100B41629 /* UILabel+Extension.m */; };
 		221E1B791E7A3BC100B41629 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1B721E7A3BC100B41629 /* UIView+Extension.m */; };
 		221E1BC81E7B8C3A00B41629 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */; };
+		22780EE11E8E490D00741236 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 22780EE01E8E490D00741236 /* NSString+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		221E1B721E7A3BC100B41629 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		221E1BC61E7B8C3A00B41629 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		22780EDF1E8E490D00741236 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		22780EE01E8E490D00741236 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,8 @@
 				221E1B721E7A3BC100B41629 /* UIView+Extension.m */,
 				221E1BC61E7B8C3A00B41629 /* UIImage+Extension.h */,
 				221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */,
+				22780EDF1E8E490D00741236 /* NSString+Extension.h */,
+				22780EE01E8E490D00741236 /* NSString+Extension.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				221E1B381E7A1B8000B41629 /* ViewController.m in Sources */,
 				221E1B771E7A3BC100B41629 /* UIColor+Extension.m in Sources */,
 				221E1B351E7A1B8000B41629 /* AppDelegate.m in Sources */,
+				22780EE11E8E490D00741236 /* NSString+Extension.m in Sources */,
 				221E1B761E7A3BC100B41629 /* NSDictionary+Extension.m in Sources */,
 				221E1B751E7A3BC100B41629 /* NSData+Extension.m in Sources */,
 				221E1BC81E7B8C3A00B41629 /* UIImage+Extension.m in Sources */,

@@ -10,6 +10,8 @@
 
 @interface NSArray (Extension)
 
+- (NSInteger)intAtIndex:(NSUInteger)index;
+
 - (double)doubleAtIndex:(NSUInteger)index;
 
 - (NSDictionary *)dictionaryAtIndex:(NSUInteger)index;
