@@ -35,8 +35,8 @@
 }
 
 - (void)autoLayoutWithView:(UIView *)view screenSize:(CGFloat)size {
-    CGFloat screenWidth;
-    CGFloat screenHeight;
+    CGFloat screenWidth = 0.0;
+    CGFloat screenHeight = 0.0;
     
     if (size == 3.5) {
         screenWidth = 320;
@@ -47,7 +47,7 @@
     }else if (size == 4.7) {
         screenWidth = 375;
         screenHeight = 667;
-    }else if (size == 5.5) {
+    }else {
         screenWidth = 414;
         screenHeight = 736;
     }
