@@ -12,6 +12,52 @@
 @interface NSString (Extension)
 
 /**
+ MD5加密
+
+ @return MD5加密值
+ */
+- (NSString *)md5Encrypt;
+
+/**
+ DES字符串加密
+
+ @param key 密钥 64位
+ @return 字符串密文
+ */
+- (NSString *)desEncryptWithKey:(NSString *)key;
+
+/**
+ DES字符串解密
+
+ @param key 密钥 64位
+ @return 字符串明文
+ */
+- (NSString *)desDecryptWithKey:(NSString*)key;
+
+/**
+ AES256字符串加密
+
+ @param key 密钥 64位
+ @return 字符串密文
+ */
+- (NSString *)aes256EncryptWithKey:(NSString *)key;
+
+/**
+ AES256字符串解密
+
+ @param key 密钥 64位
+ @return 字符串明文
+ */
+- (NSString *)aes256DecryptWithKey:(NSString *)key;
+
+/**
+ Base64的字符串转换为图片
+
+ @return UIImage
+ */
+- (UIImage *)base64ToUIImage;
+
+/**
  计算字符串字节长度，中文2个字节，英文1个字节
 
  @return 计算字符串字节长度

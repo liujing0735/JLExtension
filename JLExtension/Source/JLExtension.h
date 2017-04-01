@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UIView+Extension.h"
 #import "NSDictionary+Extension.h"
+#import "NSString+Extension.h"
 #import "NSData+Extension.h"
 #import "NSArray+Extension.h"
 #import "UIColor+Extension.h"

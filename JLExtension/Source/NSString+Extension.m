@@ -7,8 +7,96 @@
 //
 
 #import "NSString+Extension.h"
+#import "NSData+Extension.h"
+#import <CommonCrypto/CommonCryptor.h>
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (Extension)
+
+- (NSString *)md5Encrypt {
+    const char *cStr = [self UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr, (CC_LONG)strlen(cStr), result); // This is the md5 call
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", result[i]];
+    
+    return  output;
+}
+
+- (NSString *)desEncryptWithKey:(NSString *)key {
+    NSString *ciphertext = nil;
+    const char *textBytes = [self UTF8String];
+    NSUInteger dataLength = [self length];
+    unsigned char buffer[1024];
+    memset(buffer, 0, sizeof(char));
+    Byte iv[] = {1,2,3,4,5,6,7,8};
+    size_t numBytesEncrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmDES,
+                                          kCCOptionPKCS7Padding,
+                                          [key UTF8String], kCCKeySizeDES,
+                                          iv,
+                                          textBytes, dataLength,
+                                          buffer, 1024,
+                                          &numBytesEncrypted);
+    if (cryptStatus == kCCSuccess) {
+        NSData *data = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesEncrypted];
+        
+        ciphertext = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    }
+    return ciphertext;
+}
+
+- (NSString *)desDecryptWithKey:(NSString*)key {
+    NSData* cipherData = [[NSData alloc] initWithBase64EncodedString:self options:0];
+    unsigned char buffer[1024];
+    memset(buffer, 0, sizeof(char));
+    size_t numBytesDecrypted = 0;
+    Byte iv[] = {1,2,3,4,5,6,7,8};
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,
+                                          kCCAlgorithmDES,
+                                          kCCOptionPKCS7Padding,
+                                          [key UTF8String],
+                                          kCCKeySizeDES,
+                                          iv,
+                                          [cipherData bytes],
+                                          [cipherData length],
+                                          buffer,
+                                          1024,
+                                          &numBytesDecrypted);
+    NSString* plainText = nil;
+    if (cryptStatus == kCCSuccess) {
+        NSData* data = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesDecrypted];
+        plainText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    return plainText;
+}
+
+- (NSString *)aes256EncryptWithKey:(NSString *)key {
+    NSData* cipherData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    cipherData = [cipherData aes256EncryptWithKey:key];
+    if (cipherData) {
+        return [cipherData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    }
+    return nil;
+}
+
+- (NSString *)aes256DecryptWithKey:(NSString *)key {
+    NSData* cipherData = [[NSData alloc] initWithBase64EncodedString:self options:0];
+    cipherData = [cipherData aes256DecryptWithKey:key];
+    if (cipherData) {
+        return [[NSString alloc] initWithData:cipherData encoding:NSUTF8StringEncoding];
+    }
+    return nil;
+}
+
+- (UIImage *)base64ToUIImage {
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:self
+                                                      options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    return [UIImage imageWithData:data];
+}
 
 - (NSUInteger)textLength {
     NSUInteger asciiLength = 0;
