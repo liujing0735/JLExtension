@@ -46,6 +46,16 @@
     return @{};
 }
 
+- (NSArray *)arrayAtIndex:(NSUInteger)index {
+    if ([self count] > index) {
+        id value = [self objectAtIndex:index];
+        if ([value isKindOfClass:[NSArray class]]) {
+            return (NSArray *)value;
+        }
+    }
+    return @[];
+}
+
 - (NSString *)stringAtIndex:(NSUInteger)index {
     if ([self count] > index) {
         id value = [self objectAtIndex:index];
