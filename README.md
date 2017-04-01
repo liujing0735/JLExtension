@@ -25,7 +25,7 @@ step2: 导入.h文件
 ## 代码说明
 
 ### NSDictionary
-、、、
+```
 @interface NSDictionary (Extension)
 
 /**
@@ -77,4 +77,4 @@ step2: 导入.h文件
 - (double)doubleForKey:(NSString *)key;
 
 @end
-、、、
+```
