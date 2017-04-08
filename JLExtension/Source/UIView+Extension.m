@@ -81,6 +81,21 @@
     }
 }
 
+- (void)shadowColor:(UIColor *)color {
+    [self shadowColor:color opacity:0.7f offset:CGSizeMake(1.0f, 1.0f) radius:2.0f];
+}
+
+- (void)shadowColor:(UIColor *)color offset:(CGSize)offset {
+    [self shadowColor:color opacity:0.7f offset:offset radius:2.0f];
+}
+
+- (void)shadowColor:(UIColor *)color opacity:(float)opacity offset:(CGSize)offset radius:(CGFloat)radius {
+    self.layer.shadowColor = color.CGColor;
+    self.layer.shadowOpacity = opacity;
+    self.layer.shadowOffset = offset;
+    self.layer.shadowRadius = radius;
+}
+
 - (void)xibAutoLayout {
     [self autoLayoutWithView:self screenSize:4.0];
 }

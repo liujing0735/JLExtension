@@ -70,4 +70,32 @@
  @return UIColor
  */
 - (UIColor *)hexStringToColor;
+
+/**
+ 十六进制转十进制
+
+ @return 十进制字符串
+ */
+- (NSString *)hexToDecimal;
+
+/**
+ 十进制转十六进制
+ 
+ @return 十六进制字符串
+ */
+- (NSString *)decimalToHex;
+
+/*
+ 二进制转十进制
+ 
+ @return 十进制字符串
+ */
+- (NSString *)binaryToDecimal;
+
+/**
+ 十进制转二进制
+ 
+ @return 二进制字符串
+ */
+- (NSString *)decimalToBinary;
 @end

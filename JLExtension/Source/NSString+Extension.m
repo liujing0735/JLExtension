@@ -139,4 +139,83 @@
     
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
+
+- (NSString *)hexToDecimal {
+    return [NSString stringWithFormat:@"%lu",strtoul([self UTF8String],0,16)];
+}
+
+- (NSString *)decimalToHex {
+    long long int tmpid = [self intValue];
+    NSString *nLetterValue;
+    NSString *str = @"";
+    long long int ttmpig;
+    for (int i = 0; i < 9; i++) {
+        ttmpig = tmpid % 16;
+        tmpid = tmpid / 16;
+        switch (ttmpig) {
+            case 10:
+                nLetterValue = @"A";
+                break;
+            case 11:
+                nLetterValue = @"B";
+                break;
+            case 12:
+                nLetterValue = @"C";
+                break;
+            case 13:
+                nLetterValue = @"D";
+                break;
+            case 14:
+                nLetterValue = @"E";
+                break;
+            case 15:
+                nLetterValue = @"F";
+                break;
+            default:
+                nLetterValue = [[NSString alloc]initWithFormat:@"%lli", ttmpig];
+        }
+        str = [nLetterValue stringByAppendingString:str];
+        if (tmpid == 0) {
+            break;
+        }
+    }
+    return str;
+}
+
+- (NSString *)binaryToDecimal {
+    int ll = 0 ;
+    int  temp = 0 ;
+    for (int i = 0; i < self.length; i ++) {
+        temp = [[self substringWithRange:NSMakeRange(i, 1)] intValue];
+        temp = temp * powf(2, self.length - i - 1);
+        ll += temp;
+    }
+    NSString * result = [NSString stringWithFormat:@"%d",ll];
+    return result;
+}
+
+- (NSString *)decimalToBinary {
+    NSInteger num = [self integerValue];
+    NSInteger remainder = 0;      //余数
+    NSInteger divisor = 0;        //除数
+    NSString * prepare = @"";
+    
+    while (true) {
+        remainder = num%2;
+        divisor = num/2;
+        num = divisor;
+        prepare = [prepare stringByAppendingFormat:@"%d",(int)remainder];
+        
+        if (divisor == 0) {
+            break;
+        }
+    }
+    
+    NSString * result = @"";
+    for (NSInteger i = prepare.length - 1; i >= 0; i --) {
+        result = [result stringByAppendingFormat:@"%@",
+                  [prepare substringWithRange:NSMakeRange(i , 1)]];
+    }
+    return [NSString stringWithFormat:@"%08d",[result intValue]];
+}
 @end
