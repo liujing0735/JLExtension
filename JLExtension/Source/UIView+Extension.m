@@ -8,8 +8,43 @@
 
 #import "UIView+Extension.h"
 #import "JLExtension.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @implementation UIView (Extension)
+
+- (void)showHUD {
+    [MBProgressHUD showHUDAddedTo:self animated:YES];
+}
+
+- (void)hideHUD {
+    [MBProgressHUD hideHUDForView:self animated:YES];
+}
+
+- (void)showHUDWithText:(NSString *)text {
+    [self showHUDWithText:text delay:2.0];
+}
+
+- (void)showHUDWithText:(NSString *)text delay:(NSTimeInterval)delay {
+    MBProgressHUD *hud = [MBProgressHUD HUDForView:self];
+    if (!hud) {
+        hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    }
+    hud.label.text = text;
+    hud.mode = MBProgressHUDModeCustomView;
+    if (delay > 0.0) {
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hideAnimated:YES afterDelay:delay];
+    }
+    NSLog(@"%@", text);
+}
+
+- (void)updateHUDWithText:(NSString *)text {
+    [self showHUDWithText:text delay:2.0];
+}
+
+- (void)updateHUDWithText:(NSString *)text delay:(NSTimeInterval)delay {
+    [self showHUDWithText:text delay:delay];
+}
 
 - (void)cornerRadiusAtTopLeft {
     [self cornerRadiusAtTopLeftWithRadii:CGSizeMake(10, 10)];

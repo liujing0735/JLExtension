@@ -46,7 +46,11 @@
     
     NSLog(@"当前设备的网络类型: %@", [JLDeviceInfo netWorkType]);
     
+    [self.view showHUD];
     [JLDeviceInfo IPAdressForNetwork:^(NSString *ipAdress, NSString *cityName, NSString *cityCode) {
+        
+        [self.view updateHUDWithText:@"成功获取公网IP"];
+        
         NSLog(@"当前设备的公网IP地址(外网IP/公网IP): %@", ipAdress);
         NSLog(@"当前设备的公网IP地址所属城市名称: %@", cityName);
         NSLog(@"当前设备的公网IP地址所属城市编码: %@", cityCode);

@@ -12,6 +12,46 @@
 @interface UIView (Extension)
 
 /**
+ 显示HUD，需要调用hideHUD隐藏
+ */
+- (void)showHUD;
+
+/**
+ 隐藏HUD
+ */
+- (void)hideHUD;
+
+/**
+ 显示HUD，2.0秒后自动隐藏
+
+ @param text 需要显示的文字
+ */
+- (void)showHUDWithText:(NSString *)text;
+
+/**
+ 显示HUD
+
+ @param text 需要显示的文字
+ @param delay 自动隐藏的延时时间,必须大于0.0
+ */
+- (void)showHUDWithText:(NSString *)text delay:(NSTimeInterval)delay;
+
+/**
+ 更新HUD，2.0秒后自动隐藏
+
+ @param text 需要更新的文字
+ */
+- (void)updateHUDWithText:(NSString *)text;
+
+/**
+ 更新HUD
+
+ @param text 需要显示的文字
+ @param delay 自动隐藏的延时时间,必须大于0.0
+ */
+- (void)updateHUDWithText:(NSString *)text delay:(NSTimeInterval)delay;
+
+/**
  在左上角为视图添加圆角
  */
 - (void)cornerRadiusAtTopLeft;
