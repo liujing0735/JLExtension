@@ -18,16 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // 在UILabel左上角画圆
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     label.backgroundColor = [UIColor blueColor];
     [label cornerRadiusAtTopLeft];
     [self.view addSubview:label];
     
+    // 在UILabel右上角画圆
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 220, 100, 100)];
     button.backgroundColor = [UIColor blueColor];
     [button cornerRadiusAtTopRight];
     [self.view addSubview:button];
     
+    // 获取设备信息
     NSLog(@"用户自定义的名称: %@", [JLDeviceInfo deviceName]);
     NSLog(@"设备类型: %@", [JLDeviceInfo deviceModel]);
     NSLog(@"系统名称: %@", [JLDeviceInfo deviceSystemName]);
@@ -46,9 +50,10 @@
     
     NSLog(@"当前设备的网络类型: %@", [JLDeviceInfo netWorkType]);
     
+    // 显示HUD
     [self.view showHUD];
     [JLDeviceInfo IPAdressForNetwork:^(NSString *ipAdress, NSString *cityName, NSString *cityCode) {
-        
+        // 更新HUD提示文字
         [self.view updateHUDWithText:@"成功获取公网IP"];
         
         NSLog(@"当前设备的公网IP地址(外网IP/公网IP): %@", ipAdress);
