@@ -11,6 +11,50 @@
 
 @implementation UIView (Extension)
 
+- (void)cornerRadiusAtTopLeft {
+    [self cornerRadiusAtTopLeftWithRadii:CGSizeMake(10, 10)];
+}
+
+- (void)cornerRadiusAtTopRight {
+    [self cornerRadiusAtTopRightWithRadii:CGSizeMake(10, 10)];
+}
+
+- (void)cornerRadiusAtBottomLeft {
+    [self cornerRadiusAtBottomLeftWithRadii:CGSizeMake(10, 10)];
+}
+
+- (void)cornerRadiusAtBottomRight {
+    [self cornerRadiusAtBottomRightWithRadii:CGSizeMake(10, 10)];
+}
+
+- (void)cornerRadiusAtTopLeftWithRadii:(CGSize)size {
+    [self cornerRadiusWithCorner:UIRectCornerTopLeft radii:size];
+}
+
+- (void)cornerRadiusAtTopRightWithRadii:(CGSize)size {
+    [self cornerRadiusWithCorner:UIRectCornerTopRight radii:size];
+}
+
+- (void)cornerRadiusAtBottomLeftWithRadii:(CGSize)size {
+    [self cornerRadiusWithCorner:UIRectCornerBottomLeft radii:size];
+}
+
+- (void)cornerRadiusAtBottomRightWithRadii:(CGSize)size {
+    [self cornerRadiusWithCorner:UIRectCornerBottomRight radii:size];
+}
+
+- (void)cornerRadiusWithCorner:(UIRectCorner)corner radii:(CGSize)size {
+    CGRect rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    // 贝塞尔曲线 给矩形可添加圆角的方法
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:corner cornerRadii:size];
+    // 创建shaplayer
+    CAShapeLayer * masklayer = [[CAShapeLayer alloc]init];
+    masklayer.frame = self.bounds;
+    // 设置路径
+    masklayer.path = path.CGPath;
+    self.layer.mask = masklayer;
+}
+
 - (void)cornerRadius {
     [self cornerRadius:7];
 }

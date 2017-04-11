@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JLDeviceInfo.h"
+
 #import "UIView+Extension.h"
 #import "NSDictionary+Extension.h"
 #import "NSString+Extension.h"

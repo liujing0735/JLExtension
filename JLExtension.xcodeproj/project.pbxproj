@@ -23,7 +23,9 @@
 		221E1B781E7A3BC100B41629 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1B701E7A3BC100B41629 /* UILabel+Extension.m */; };
 		221E1B791E7A3BC100B41629 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1B721E7A3BC100B41629 /* UIView+Extension.m */; };
 		221E1BC81E7B8C3A00B41629 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */; };
+		222277981E9B7F8E00951C36 /* JLDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 222277971E9B7F8E00951C36 /* JLDeviceInfo.m */; };
 		22780EE11E8E490D00741236 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 22780EE01E8E490D00741236 /* NSString+Extension.m */; };
+		3378FBC3A8B6D5D074CB74FC /* Pods_JLExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6430C9787BB4DF0B23274D /* Pods_JLExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +79,13 @@
 		221E1B721E7A3BC100B41629 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		221E1BC61E7B8C3A00B41629 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		222277961E9B7F8E00951C36 /* JLDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLDeviceInfo.h; sourceTree = "<group>"; };
+		222277971E9B7F8E00951C36 /* JLDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLDeviceInfo.m; sourceTree = "<group>"; };
 		22780EDF1E8E490D00741236 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		22780EE01E8E490D00741236 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		BDAD23C80169BB1DF681A1E9 /* Pods-JLExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		C3F293EED29AFC8202C18F5F /* Pods-JLExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension.release.xcconfig"; sourceTree = "<group>"; };
+		DB6430C9787BB4DF0B23274D /* Pods_JLExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3378FBC3A8B6D5D074CB74FC /* Pods_JLExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +121,8 @@
 				221E1B491E7A1B8100B41629 /* JLExtensionTests */,
 				221E1B541E7A1B8100B41629 /* JLExtensionUITests */,
 				221E1B2E1E7A1B8000B41629 /* Products */,
+				752551F0AE118EBEA6DC1F3A /* Pods */,
+				BFCF698A1E67FC59F47B3F65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,8 +201,27 @@
 				221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */,
 				22780EDF1E8E490D00741236 /* NSString+Extension.h */,
 				22780EE01E8E490D00741236 /* NSString+Extension.m */,
+				222277961E9B7F8E00951C36 /* JLDeviceInfo.h */,
+				222277971E9B7F8E00951C36 /* JLDeviceInfo.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		752551F0AE118EBEA6DC1F3A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BDAD23C80169BB1DF681A1E9 /* Pods-JLExtension.debug.xcconfig */,
+				C3F293EED29AFC8202C18F5F /* Pods-JLExtension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BFCF698A1E67FC59F47B3F65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB6430C9787BB4DF0B23274D /* Pods_JLExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 221E1B5A1E7A1B8100B41629 /* Build configuration list for PBXNativeTarget "JLExtension" */;
 			buildPhases = (
+				A0957F9CB91106822FC5E016 /* [CP] Check Pods Manifest.lock */,
 				221E1B291E7A1B8000B41629 /* Sources */,
 				221E1B2A1E7A1B8000B41629 /* Frameworks */,
 				221E1B2B1E7A1B8000B41629 /* Resources */,
+				89847746B18F778362A3446A /* [CP] Embed Pods Frameworks */,
+				B1B1D0998BAED8C042DC2F96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +294,7 @@
 				TargetAttributes = {
 					221E1B2C1E7A1B8000B41629 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MVU5F37333;
 						ProvisioningStyle = Automatic;
 					};
 					221E1B451E7A1B8100B41629 = {
@@ -323,6 +356,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		89847746B18F778362A3446A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0957F9CB91106822FC5E016 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B1B1D0998BAED8C042DC2F96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		221E1B291E7A1B8000B41629 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -340,6 +421,7 @@
 				221E1B751E7A3BC100B41629 /* NSData+Extension.m in Sources */,
 				221E1BC81E7B8C3A00B41629 /* UIImage+Extension.m in Sources */,
 				221E1B321E7A1B8000B41629 /* main.m in Sources */,
+				222277981E9B7F8E00951C36 /* JLDeviceInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +497,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -463,6 +546,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -486,25 +570,35 @@
 		};
 		221E1B5B1E7A1B8100B41629 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDAD23C80169BB1DF681A1E9 /* Pods-JLExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MVU5F37333;
 				INFOPLIST_FILE = JLExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonliu.JLExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		221E1B5C1E7A1B8100B41629 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3F293EED29AFC8202C18F5F /* Pods-JLExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MVU5F37333;
 				INFOPLIST_FILE = JLExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonliu.JLExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

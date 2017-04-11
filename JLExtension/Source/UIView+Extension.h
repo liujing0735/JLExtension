@@ -12,6 +12,62 @@
 @interface UIView (Extension)
 
 /**
+ 在左上角为视图添加圆角
+ */
+- (void)cornerRadiusAtTopLeft;
+
+/**
+ 在右上角为视图添加圆角
+ */
+- (void)cornerRadiusAtTopRight;
+
+/**
+ 在左下角为视图添加圆角
+ */
+- (void)cornerRadiusAtBottomLeft;
+
+/**
+ 在右下角为视图添加圆角
+ */
+- (void)cornerRadiusAtBottomRight;
+
+/**
+ 在左上角为视图添加圆角
+
+ @param size 圆角的大小
+ */
+- (void)cornerRadiusAtTopLeftWithRadii:(CGSize)size;
+
+/**
+ 在右上角为视图添加圆角
+
+ @param size 圆角的大小
+ */
+- (void)cornerRadiusAtTopRightWithRadii:(CGSize)size;
+
+/**
+ 在左下角为视图添加圆角
+
+ @param size 圆角的大小
+ */
+- (void)cornerRadiusAtBottomLeftWithRadii:(CGSize)size;
+
+/**
+ 在右下角为视图添加圆角
+
+ @param size 圆角的大小
+ */
+- (void)cornerRadiusAtBottomRightWithRadii:(CGSize)size;
+
+/**
+ 为视图添加个别方向的圆角
+
+ @param corner 圆角的位置
+ @param size 圆角的大小
+ */
+- (void)cornerRadiusWithCorner:(UIRectCorner)corner radii:(CGSize)size;
+
+/**
  为视图添加圆角
  */
 - (void)cornerRadius;
