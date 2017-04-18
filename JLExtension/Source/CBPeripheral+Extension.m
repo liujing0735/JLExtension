@@ -10,6 +10,27 @@
 
 @implementation CBPeripheral (Extension)
 
+- (BOOL)isConnect {
+    if (self.state == CBPeripheralStateConnected) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isReadwrite {
+    if (self.readCharacteristic && self.writeCharacteristic) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)setCurrentRSSI:(NSNumber *)currentRSSI {
+}
+
+- (NSNumber *)currentRSSI {
+    return self.currentRSSI;
+}
+
 - (void)setReadCharacteristic:(CBCharacteristic *)readCharacteristic {
 }
 
@@ -34,6 +55,7 @@
 - (void)setWriteData:(NSData *)writeData {
     if (self.state == CBPeripheralStateConnected) {
         [self writeValue:writeData forCharacteristic:self.writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
+        [self readValueForCharacteristic:self.readCharacteristic];
     }
 }
 

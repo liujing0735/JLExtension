@@ -9,6 +9,11 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @interface CBPeripheral (Extension)
+@property (readonly, nonatomic) BOOL isConnect;
+@property (readonly, nonatomic) BOOL isReadwrite;
+
+@property (strong, nonatomic) NSNumber *currentRSSI;
+
 @property (strong, nonatomic) CBCharacteristic *readCharacteristic;
 @property (strong, nonatomic) CBCharacteristic *writeCharacteristic;
 @property (strong, nonatomic) NSString *macAddress;
