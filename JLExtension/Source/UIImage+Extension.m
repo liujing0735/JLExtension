@@ -23,4 +23,28 @@
     return scaledImage;
 }
 
+- (UIImage *)clipImageInRect:(CGRect)rect {
+    CGSize size = self.size;
+    CGRect frame = rect;
+    if (rect.origin.y >= size.height) {
+        return self;
+    }
+    if (rect.origin.x >= size.width) {
+        return self;
+    }
+    
+    if (rect.origin.y + rect.size.height > size.height) {
+        frame.size.height = size.height - rect.origin.y;
+    }
+    if (rect.origin.x + rect.size.width > size.width) {
+        frame.size.width = size.width - rect.origin.x;
+    }
+    
+    CGImageRef imageRef = self.CGImage;
+    CGImageRef imageRefRect = CGImageCreateWithImageInRect(imageRef, frame);
+    //UIImage *imageRect = [[UIImage alloc] initWithCGImage:imageRefRect];
+    UIImage *imageRect = [UIImage imageWithCGImage:imageRefRect scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
+    return imageRect;
+}
+
 @end

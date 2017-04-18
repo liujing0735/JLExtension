@@ -25,4 +25,12 @@
  @return 等比缩放后的图片
  */
 - (UIImage *)scaleImage:(float)scaleSize;
+
+/**
+ 截取图片的一部分
+
+ @param rect 要截取的区域
+ @return 截取到的新图片
+ */
+- (UIImage *)clipImageInRect:(CGRect)rect;
 @end

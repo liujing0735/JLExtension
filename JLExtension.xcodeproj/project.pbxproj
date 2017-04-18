@@ -25,6 +25,7 @@
 		221E1BC81E7B8C3A00B41629 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E1BC71E7B8C3A00B41629 /* UIImage+Extension.m */; };
 		222277981E9B7F8E00951C36 /* JLDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 222277971E9B7F8E00951C36 /* JLDeviceInfo.m */; };
 		222E3EEC1EA5C12100F92812 /* NSTimer+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 222E3EEB1EA5C12100F92812 /* NSTimer+Extension.m */; };
+		222E3EEF1EA5EC3900F92812 /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 222E3EEE1EA5EC3900F92812 /* UITextField+Extension.m */; };
 		22780EE11E8E490D00741236 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 22780EE01E8E490D00741236 /* NSString+Extension.m */; };
 		3378FBC3A8B6D5D074CB74FC /* Pods_JLExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6430C9787BB4DF0B23274D /* Pods_JLExtension.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,8 @@
 		222277971E9B7F8E00951C36 /* JLDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLDeviceInfo.m; sourceTree = "<group>"; };
 		222E3EEA1EA5C12100F92812 /* NSTimer+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Extension.h"; sourceTree = "<group>"; };
 		222E3EEB1EA5C12100F92812 /* NSTimer+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Extension.m"; sourceTree = "<group>"; };
+		222E3EED1EA5EC3900F92812 /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
+		222E3EEE1EA5EC3900F92812 /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
 		22780EDF1E8E490D00741236 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		22780EE01E8E490D00741236 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		BDAD23C80169BB1DF681A1E9 /* Pods-JLExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				22780EE01E8E490D00741236 /* NSString+Extension.m */,
 				222E3EEA1EA5C12100F92812 /* NSTimer+Extension.h */,
 				222E3EEB1EA5C12100F92812 /* NSTimer+Extension.m */,
+				222E3EED1EA5EC3900F92812 /* UITextField+Extension.h */,
+				222E3EEE1EA5EC3900F92812 /* UITextField+Extension.m */,
 				222277961E9B7F8E00951C36 /* JLDeviceInfo.h */,
 				222277971E9B7F8E00951C36 /* JLDeviceInfo.m */,
 			);
@@ -416,6 +421,7 @@
 			files = (
 				221E1B791E7A3BC100B41629 /* UIView+Extension.m in Sources */,
 				221E1B781E7A3BC100B41629 /* UILabel+Extension.m in Sources */,
+				222E3EEF1EA5EC3900F92812 /* UITextField+Extension.m in Sources */,
 				221E1B731E7A3BC100B41629 /* CBPeripheral+Extension.m in Sources */,
 				221E1B741E7A3BC100B41629 /* NSArray+Extension.m in Sources */,
 				221E1B381E7A1B8000B41629 /* ViewController.m in Sources */,
