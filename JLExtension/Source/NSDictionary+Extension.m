@@ -166,7 +166,6 @@
             code = [NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;",key];
         } else if ([value isKindOfClass:[NSDictionary class]]) {
             code = [NSString stringWithFormat:@"@property (nonatomic, strong) NSDictionary *%@;",key];
-            
         }
         
         [codes appendFormat:@"\n%@\n",code];

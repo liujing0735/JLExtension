@@ -9,14 +9,39 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @interface CBPeripheral (Extension)
+
+/**
+ 连接状态
+ */
 @property (readonly, nonatomic) BOOL isConnect;
+
+/**
+ 读写状态
+ */
 @property (readonly, nonatomic) BOOL isReadwrite;
 
-@property (strong, nonatomic) NSNumber *currentRSSI;
+/**
+ 蓝牙信号强度
+ */
+@property (readwrite, nonatomic) NSNumber *currentRSSI;
 
-@property (strong, nonatomic) CBCharacteristic *readCharacteristic;
-@property (strong, nonatomic) CBCharacteristic *writeCharacteristic;
-@property (strong, nonatomic) NSString *macAddress;
+/**
+ 可读的特征
+ */
+@property (readwrite, nonatomic) CBCharacteristic *readCharacteristic;
 
-@property (strong, nonatomic) NSData *writeData;
+/**
+ 可写的特征
+ */
+@property (readwrite, nonatomic) CBCharacteristic *writeCharacteristic;
+
+/**
+ 蓝牙的Mac地址
+ */
+@property (readwrite, nonatomic) NSString *macAddress;
+
+/**
+ 待写入数据
+ */
+@property (readwrite, nonatomic) NSData *writeData;
 @end

@@ -25,6 +25,12 @@
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
+#ifdef DEBUG
+#define NSLog(...) NSLog(@"\n 在文件(%@)第(%d)行\n %@\n",[[NSString stringWithFormat:@"%s",__FILE__] componentsSeparatedByString:@"/"].lastObject,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define NSLog(...)
+#endif
+
 #ifndef JLExtension_h
 #define JLExtension_h
 
