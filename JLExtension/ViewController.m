@@ -18,6 +18,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSDictionary *dictionary = @{@"NSString":@"string",@"NSArray":@[@"value1",@"value2"]};
+    NSString *string = [dictionary stringForKey:@"NSString"];
+    NSArray *array = [dictionary arrayForKey:@"NSArray"];
+    NSLog(@"存在的字符串：%@ 存在的数组：%@", string, array);
+    // 取到不存在的字符
+    NSString *stringNot = [dictionary stringForKey:@"NSStringNot"];
+    // 取到不存在的数组
+    NSArray *arrayNot = [dictionary arrayForKey:@"NSArrayNot"];
+    NSLog(@"不存在的字符串：%@ 不存在的数组：%@", stringNot, arrayNot);
+    
+    // 校验密码强度
+    NSArray *pwds = @[@"1234",@"123456",@"QQ1234",@"QQ123456",@"qq1234QQ"];
+    for (NSString *pwd in pwds) {
+        NSInteger strength = [pwd passwordStrength];
+        NSLog(@"密码：%@ 强度：%ld", pwd, (long)strength);
+    }
     
     // 在UILabel左上角画圆
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];

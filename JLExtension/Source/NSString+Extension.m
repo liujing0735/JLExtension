@@ -13,6 +13,139 @@
 
 @implementation NSString (Extension)
 
+- (BOOL)isEmpty {
+    if (self) {
+        NSString *string = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([string isEqualToString:@""]) {
+            return YES;
+        }
+        
+        if (string.length == 0) {
+            return YES;
+        }
+        
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)isUrl {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    
+    return [self regularExpression:@"[a-zA-z]+://[^\\s]*"];
+}
+
+- (BOOL)isImageUrl {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    return [self regularExpression:@"(https|http)://[^\\s]*(?:\\.jpg|\\.gif|\\.png)"];
+}
+
+- (BOOL)isEmail {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    
+    return [self regularExpression:@"[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?"];
+}
+
+- (BOOL)isMobilePhone {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    
+    return [self regularExpression:@"^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|7[06-8])\\d{8}$"];
+}
+
+- (BOOL)isIdCardNumber {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    // 15位身份证号码
+    if ([self regularExpression:@"^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{2}$"]) {
+        return YES;
+    }
+    // 18位身份证号码
+    if ([self regularExpression:@"^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$"]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)isPassword {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    
+    return [self regularExpression:@"^.{6,16}$"];
+}
+
+- (BOOL)isStrongPassword {
+    if ([self isEmpty]) {
+        return NO;
+    }
+
+    // 包含大小写字母和数字的组合，不能使用特殊字符，长度在6-16之间
+    return [self regularExpression:@"^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$"];
+}
+
+- (NSInteger)passwordStrength {
+    NSInteger strength = 0;
+    
+    if ([self isEmpty]) {
+        return strength;
+    }
+    
+    NSString *length = @"^\\w{6,16}$";      // 长度
+    NSString *number = @"^\\w*\\d+\\w*$";   // 数字
+    NSString *lower = @"^\\w*[a-z]+\\w*$";  // 小写字母
+    NSString *upper = @"^\\w*[A-Z]+\\w*$";  // 大写字母
+    
+    if ([self regularExpression:length]) {
+        strength += 1;
+    }
+    if ([self regularExpression:number]) {
+        strength += 1;
+    }
+    if ([self regularExpression:lower]) {
+        strength += 1;
+    }
+    if ([self regularExpression:upper]) {
+        strength += 1;
+    }
+    return strength;
+}
+
+- (BOOL)isNumber {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    
+    return [self regularExpression:@"^[0-9]*$"];
+}
+
+- (BOOL)isNumberWithLength:(NSUInteger)length {
+    if ([self isEmpty]) {
+        return NO;
+    }
+    NSString *pattern = [NSString stringWithFormat:@"^\\d{%lu}$",(unsigned long)length];
+    return [self regularExpression:pattern];
+}
+
+- (BOOL)regularExpression:(NSString *)pattern {
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionAnchorsMatchLines error:&error];
+    NSTextCheckingResult *result = [regex firstMatchInString:self options:0 range:NSMakeRange(0, [self length])];
+    if (result) {
+        return YES;
+    }
+    return NO;
+}
+
 - (NSString *)md5Encrypt {
     const char *cStr = [self UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
