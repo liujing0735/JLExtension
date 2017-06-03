@@ -305,6 +305,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        
         if (error) {
             NSLog(@"Error: %@", error);
             callback(@"未连接",@"未知",@"未知");

@@ -1,6 +1,0 @@
-framework module Pods_JLExtension {
-  umbrella header "Pods-JLExtension-umbrella.h"
-
-  export *
-  module * { export * }
-}

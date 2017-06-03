@@ -10,6 +10,10 @@
 
 @interface NSData (Extension)
 
++ (NSString *)currentTime;
+
++ (NSString *)currentTimestamp;
+
 /**
  NSData 转 Mac地址
  
