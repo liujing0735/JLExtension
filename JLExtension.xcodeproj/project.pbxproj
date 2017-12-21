@@ -28,6 +28,8 @@
 		222E3EEF1EA5EC3900F92812 /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 222E3EEE1EA5EC3900F92812 /* UITextField+Extension.m */; };
 		224ACE901EE2871600A01755 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 224ACE8F1EE2871600A01755 /* NSDate+Extension.m */; };
 		22780EE11E8E490D00741236 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 22780EE01E8E490D00741236 /* NSString+Extension.m */; };
+		22AC0B6A1FEB60AB00D0C778 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 22AC0B681FEB60AB00D0C778 /* public_key.der */; };
+		22AC0B6B1FEB60AB00D0C778 /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 22AC0B691FEB60AB00D0C778 /* private_key.p12 */; };
 		3378FBC3A8B6D5D074CB74FC /* Pods_JLExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6430C9787BB4DF0B23274D /* Pods_JLExtension.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		224ACE8F1EE2871600A01755 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		22780EDF1E8E490D00741236 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		22780EE01E8E490D00741236 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		22AC0B681FEB60AB00D0C778 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
+		22AC0B691FEB60AB00D0C778 /* private_key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key.p12; sourceTree = "<group>"; };
 		BDAD23C80169BB1DF681A1E9 /* Pods-JLExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C3F293EED29AFC8202C18F5F /* Pods-JLExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension.release.xcconfig"; sourceTree = "<group>"; };
 		DB6430C9787BB4DF0B23274D /* Pods_JLExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,7 @@
 		221E1B2F1E7A1B8000B41629 /* JLExtension */ = {
 			isa = PBXGroup;
 			children = (
+				22AC0B671FEB60AB00D0C778 /* Secret key */,
 				221E1B631E7A3BC100B41629 /* Source */,
 				221E1B331E7A1B8000B41629 /* AppDelegate.h */,
 				221E1B341E7A1B8000B41629 /* AppDelegate.m */,
@@ -220,6 +225,15 @@
 				224ACE8F1EE2871600A01755 /* NSDate+Extension.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		22AC0B671FEB60AB00D0C778 /* Secret key */ = {
+			isa = PBXGroup;
+			children = (
+				22AC0B681FEB60AB00D0C778 /* public_key.der */,
+				22AC0B691FEB60AB00D0C778 /* private_key.p12 */,
+			);
+			path = "Secret key";
 			sourceTree = "<group>";
 		};
 		752551F0AE118EBEA6DC1F3A /* Pods */ = {
@@ -351,6 +365,8 @@
 			files = (
 				221E1B401E7A1B8000B41629 /* LaunchScreen.storyboard in Resources */,
 				221E1B3D1E7A1B8000B41629 /* Assets.xcassets in Resources */,
+				22AC0B6A1FEB60AB00D0C778 /* public_key.der in Resources */,
+				22AC0B6B1FEB60AB00D0C778 /* private_key.p12 in Resources */,
 				221E1B3B1E7A1B8000B41629 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,9 +394,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JLExtension/Pods-JLExtension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -393,13 +414,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JLExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B1B1D0998BAED8C042DC2F96 /* [CP] Copy Pods Resources */ = {

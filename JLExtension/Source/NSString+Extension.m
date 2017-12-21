@@ -210,7 +210,7 @@
 - (NSString *)aes256EncryptWithKey:(NSString *)key {
     NSData* cipherData = [self dataUsingEncoding:NSUTF8StringEncoding];
     cipherData = [cipherData aes256EncryptWithKey:key];
-    if (cipherData) {
+    if (cipherData && cipherData.length > 0) {
         return [cipherData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     }
     return nil;
@@ -219,7 +219,67 @@
 - (NSString *)aes256DecryptWithKey:(NSString *)key {
     NSData* cipherData = [[NSData alloc] initWithBase64EncodedString:self options:0];
     cipherData = [cipherData aes256DecryptWithKey:key];
-    if (cipherData) {
+    if (cipherData && cipherData.length > 0) {
+        return [[NSString alloc] initWithData:cipherData encoding:NSUTF8StringEncoding];
+    }
+    return nil;
+}
+
+/**
+ RSA 公钥加密
+ 
+ @param der public_key.der
+ @return 公钥加密密文
+ */
+- (NSString *)rsaEncryptWithPublicKey:(NSString *)der {
+    NSData *cipherData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    cipherData = [cipherData rsaEncryptWithPublicKey:der];
+    if (cipherData && cipherData.length > 0) {
+        return [cipherData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    }
+    return nil;
+}
+
+/**
+ RSA 私钥加密
+ 
+ @param p12 private_key.p12
+ @return 私钥加密密文
+ */
+- (NSString *)rsaEncryptWithPrivateKey:(NSString *)p12 PWD:(NSString *)pwd {
+    NSData *cipherData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    cipherData = [cipherData rsaEncryptWithPrivateKey:p12 PWD:pwd];
+    if (cipherData && cipherData.length > 0) {
+        return [cipherData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    }
+    return nil;
+}
+
+/**
+ RSA 公钥解密
+ 
+ @param der public_key.der
+ @return 公钥解密明文
+ */
+- (NSString *)rsaDecryptWithPublicKey:(NSString *)der {
+    NSData *cipherData = [[NSData alloc] initWithBase64EncodedString:self options:0];
+    cipherData = [cipherData rsaDecryptWithPublicKey:der];
+    if (cipherData && cipherData.length > 0) {
+        return [[NSString alloc] initWithData:cipherData encoding:NSUTF8StringEncoding];
+    }
+    return nil;
+}
+
+/**
+ RSA 私钥加密
+ 
+ @param p12 private_key.p12
+ @return 私钥解密明文
+ */
+- (NSString *)rsaDecryptWithPrivateKey:(NSString *)p12 PWD:(NSString *)pwd {
+    NSData *cipherData = [[NSData alloc] initWithBase64EncodedString:self options:0];
+    cipherData = [cipherData rsaDecryptWithPrivateKey:p12 PWD:pwd];
+    if (cipherData && cipherData.length > 0) {
         return [[NSString alloc] initWithData:cipherData encoding:NSUTF8StringEncoding];
     }
     return nil;
@@ -350,5 +410,33 @@
                   [prepare substringWithRange:NSMakeRange(i , 1)]];
     }
     return [NSString stringWithFormat:@"%08d",[result intValue]];
+}
+
+- (NSData *)stringToData {
+    if ([self length] == 0) {
+        return nil;
+    }
+    
+    NSMutableData *hexData = [[NSMutableData alloc] initWithCapacity:8];
+    NSRange range;
+    if ([self length] %2 == 0) {
+        range = NSMakeRange(0,2);
+    } else {
+        range = NSMakeRange(0,1);
+    }
+    for (NSInteger i = range.location; i < [self length]; i += 2) {
+        unsigned int anInt;
+        NSString *hexCharStr = [self substringWithRange:range];
+        NSScanner *scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        
+        [scanner scanHexInt:&anInt];
+        NSData *entity = [[NSData alloc] initWithBytes:&anInt length:1];
+        [hexData appendData:entity];
+        
+        range.location += range.length;
+        range.length = 2;
+    }
+    
+    return hexData;
 }
 @end

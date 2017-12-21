@@ -18,6 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSString *cipherData = @"测试有很多中文和英文混在一起的时候的AES加密和解密的效果。！@";
+    NSString *enc = [cipherData aes256EncryptWithKey:@"GbY5hpr0RNP3eL5D"];
+    NSLog(@"AES256加密： %@",enc);
+    NSString *dec =  [enc aes256DecryptWithKey:@"GbY5hpr0RNP3eL5D"];
+    NSLog(@"AES256解密： %@",dec);
+    
+    NSString *encryptStr = @"fyZ6ttY0ff9GP+/5p51bmnNZvpF1frhysPg3MuC0g9v2dpjbFJF7U5BswayCPW2oVfk5HnMH4h8zy2kG1JWf/1STQSBfdFTm2a4BV33J26YBPMasGa7oInrcsL5Wff1qVRtD9p1XprZH6Zd4IF/pSMOE+UhMi6IMiuOB3J/HUfMJh2jZtKVJbQPOGyx279rXAGq1hUjWjdSD9w+nKv69xO+TxljX9z+uTqWOMuIKSM7VCJEpCpSDPWHixG2ZojeqvbV0tZHMl9M0ysjphQuX4kx9KXrPuinWpaSvAg1f3/6v4QkkMyRrRok8F/NnAHoYfk4H/l7vS36bgnq4kCkKK1x8e8/xCJ4hrccL1Okv2Mm73PtnmY3XOFLP59WG59lcMRddomO+njH0XAq+KiQEKUjav4xQgP10anOf4Vo8YHHzOCQj5KRZGeZQ9WUqBVjjci7NJAOulnOJWsXVuZI4uC+/79MMXOi058AbMXPMWlJgjPUDX+ry37DsPIdXERvXtmqleXp8cF7qFCMANGhRA02qsUVUSx4e6vkghXbr55nOitZFtCT26rSTVIMAgNvR/ECbWkXTPRHbZNVIoWkcHu8wYvNn1/rjX3g4iH4Px05KakLNrAgulmHqYIusjCz8dsTbFeOWkN7GA1HOrmeatt25P2cVmR8/+DIKRuFIeX4rnQHyEioBYXNyNGjQiG8iM+qvRzxndJkZ9cM7SuaTin7bZJsc9H1+XnImfxQuhrMC8r0oSCwqHTdkhq14sGKvLQcrDvhB0IrRJFzxA2S/uncv8etsNjSjhory+SabhP1INs7IWGDssnkAtlaqzdPdRUNWFiORaWKHCopr2uHptnq6N3I8uAG6CLme4CLZs46/IByWS3wFgEsH6Zjz/6TizsOglQlVW1pRbIeTSihllvS1/VwyXT4Esa9WZROngVFvIUC2QSEtQewMV4OW6KGHQ2ARmKM5m2KNrAhOE6e5NTXrGN+vLOU3k25NPsUwm/cwrAa5QTHCFefaJoGwQB4LUhlnr+Jv2V/PVFxEqTCIc9ENbn+UPWBUcnJ8qaFoDrpOktaJLYViuEY5TyKJjPSyeECp5myrYxiKgt3E25ldwTAc78per6ck5NLvO1o7MDGiXdBrFHDUG3+eJqBMcpVaTHU7kc7QnzzN6ERbvJeS+83xEfqI77vRiaY5OSciJdc=";
+    NSString *encRSA = [cipherData rsaEncryptWithPublicKey:@"public_key.der"];
+    NSLog(@"RSA加密： %@",encRSA);
+    NSString *decRSA =  [encRSA rsaDecryptWithPrivateKey:@"private_key.p12" PWD:nil];
+    NSLog(@"RSA解密： %@",decRSA);
+    NSString *decRSA2 =  [encryptStr rsaDecryptWithPublicKey:@"public_key.der"];
+    NSLog(@"RSA解密： %@",decRSA2);
+    
     NSDictionary *dictionary = @{@"NSString":@"string",@"NSArray":@[@"value1",@"value2"]};
     NSString *string = [dictionary stringForKey:@"NSString"];
     NSArray *array = [dictionary arrayForKey:@"NSArray"];

@@ -13,6 +13,7 @@
 #import "NSDictionary+Extension.h"
 #import "NSString+Extension.h"
 #import "NSData+Extension.h"
+#import "NSDate+Extension.h"
 #import "NSArray+Extension.h"
 #import "UIColor+Extension.h"
 #import "UILabel+Extension.h"

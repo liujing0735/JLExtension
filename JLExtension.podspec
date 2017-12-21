@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JLExtension"
-  s.version      = "0.1.3"
+  s.version      = "0.1.5"
   s.summary      = "To prevent an array, avoid the dictionary values flash back."
 
   # This description is used to generate tags and improve search results.
@@ -133,7 +133,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "MBProgressHUD", "~> 1.0.0"
+  s.dependency "MBProgressHUD", "~> 1.1.0"
 	s.dependency "AFNetworking", "~> 3.0"
-	# s.dependency "SDWebImage", "~> 3.8"
+	# s.dependency "SDWebImage", "~> 4.0"
 end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const kInitVector = @"16-Bytes--String";
+
 @interface NSData (Extension)
 
 /**
@@ -25,18 +27,50 @@
 - (NSString *)dataToString;
 
 /**
- AES256加密算法
+ AES256 加密算法
 
  @param key 加密key
- @return 加密后的数据
+ @return 加密密文
  */
 - (NSData *)aes256EncryptWithKey:(NSString *)key;
 
 /**
- AES256e解密算法
+ AES256 解密算法
  
  @param key 加密key
- @return 解密后的数据
+ @return 解密明文
  */
 - (NSData *)aes256DecryptWithKey:(NSString *)key;
+
+/**
+ RSA 公钥加密
+ 
+ @param der public_key.der
+ @return 公钥加密密文
+ */
+- (NSData *)rsaEncryptWithPublicKey:(NSString *)der;
+
+/**
+ RSA 私钥加密
+ 
+ @param p12 private_key.p12
+ @return 私钥加密密文
+ */
+- (NSData *)rsaEncryptWithPrivateKey:(NSString *)p12 PWD:(NSString *)pwd;
+
+/**
+ RSA 公钥解密
+ 
+ @param der public_key.der
+ @return 公钥解密明文
+ */
+- (NSData *)rsaDecryptWithPublicKey:(NSString *)der;
+
+/**
+ RSA 私钥加密
+ 
+ @param p12 private_key.p12
+ @return 私钥解密明文
+ */
+- (NSData *)rsaDecryptWithPrivateKey:(NSString *)p12 PWD:(NSString *)pwd;
 @end

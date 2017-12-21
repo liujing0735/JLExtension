@@ -121,7 +121,7 @@
 /**
  AES256字符串加密
 
- @param key 密钥 64位
+ @param key 密钥 16位
  @return 字符串密文
  */
 - (NSString *)aes256EncryptWithKey:(NSString *)key;
@@ -129,10 +129,42 @@
 /**
  AES256字符串解密
 
- @param key 密钥 64位
+ @param key 密钥 16位
  @return 字符串明文
  */
 - (NSString *)aes256DecryptWithKey:(NSString *)key;
+
+/**
+ RSA 公钥加密
+ 
+ @param der public_key.der
+ @return 公钥加密密文
+ */
+- (NSString *)rsaEncryptWithPublicKey:(NSString *)der;
+
+/**
+ RSA 私钥加密
+ 
+ @param p12 private_key.p12
+ @return 私钥加密密文
+ */
+- (NSString *)rsaEncryptWithPrivateKey:(NSString *)p12 PWD:(NSString *)pwd;
+
+/**
+ RSA 公钥解密
+ 
+ @param der public_key.der
+ @return 公钥解密明文
+ */
+- (NSString *)rsaDecryptWithPublicKey:(NSString *)der;
+
+/**
+ RSA 私钥加密
+ 
+ @param p12 private_key.p12
+ @return 私钥解密明文
+ */
+- (NSString *)rsaDecryptWithPrivateKey:(NSString *)p12 PWD:(NSString *)pwd;
 
 /**
  Base64的字符串转换为图片
@@ -182,4 +214,6 @@
  @return 二进制字符串
  */
 - (NSString *)decimalToBinary;
+
+- (NSData *)stringToData;
 @end
