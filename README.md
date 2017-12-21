@@ -14,7 +14,7 @@ step2:导入.h文件
 
 step1: add the following line to your Podfile:
 
-pod 'JLExtension','~> 0.0.1'
+pod 'JLExtension','~> 0.1.6'
 
 step2: 导入.h文件
 
