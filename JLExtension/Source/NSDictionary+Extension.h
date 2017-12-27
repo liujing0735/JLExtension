@@ -60,7 +60,22 @@
 
 - (NSString *)RMBForKey:(NSString *)key;
 - (NSString *)RMBCodeForKey:(NSString *)key;
+
+/**
+ 从字典中取出时间戳并转为标准时间
+
+ @param key 关键字
+ @return 标准时间 YYYY-MM-dd HH:mm:ss
+ */
 - (NSString *)dateForKey:(NSString *)key;
+
+/**
+ 从字典中取出时间戳并转为标准时间数组
+
+ @param key 关键字
+ @return 标准时间数组 @[YYYY-MM-dd, HH:mm:ss]
+ */
+- (NSArray *)datesForKey:(NSString *)key;
 
 - (void)createPropertyCode;
 

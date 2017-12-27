@@ -17,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"当前时间 %@",[NSDate currentTime]);
+    NSLog(@"当前时间戳 %@",[NSDate currentTimestamp]);
+    NSLog(@"时间戳转标准时间 %@",[[NSDate currentTimestamp] timestampToStandardtime]);
+    NSLog(@"时间戳转标准时间数组 %@",[[NSDate currentTimestamp] timestampToStandardtimes]);
+    
     // Do any additional setup after loading the view, typically from a nib.
     NSString *cipherData = @"测试有很多中文和英文混在一起的时候的AES加密和解密的效果。！@";
     NSString *enc = [cipherData aes256EncryptWithKey:@"GbY5hpr0RNP3eL5D"];
@@ -32,10 +37,12 @@
     NSString *decRSA2 =  [encryptStr rsaDecryptWithPublicKey:@"public_key.der"];
     NSLog(@"RSA解密： %@",decRSA2);
     
-    NSDictionary *dictionary = @{@"NSString":@"string",@"NSArray":@[@"value1",@"value2"]};
+    NSDictionary *dictionary = @{@"NSString":@"string",@"NSArray":@[@"value1",@"value2"],@"NSDate":@"1514337947"};
     NSString *string = [dictionary stringForKey:@"NSString"];
     NSArray *array = [dictionary arrayForKey:@"NSArray"];
-    NSLog(@"存在的字符串：%@ 存在的数组：%@", string, array);
+    NSString *date = [dictionary dateForKey:@"NSDate"];
+    NSArray *dates = [dictionary datesForKey:@"NSDate"];
+    NSLog(@"存在的字符串：%@ 存在的数组：%@ 存在时间：%@ 时间数组 %@", string, array, date, dates);
     // 取到不存在的字符
     NSString *stringNot = [dictionary stringForKey:@"NSStringNot"];
     // 取到不存在的数组

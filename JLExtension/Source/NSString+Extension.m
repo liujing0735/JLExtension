@@ -439,4 +439,17 @@
     
     return hexData;
 }
+
+- (NSString *)timestampToStandardtime {
+    NSTimeInterval secs = self.doubleValue;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:secs];
+    return [formatter stringFromDate:date];
+}
+
+- (NSArray *)timestampToStandardtimes {
+    NSString *standardTime = [self timestampToStandardtime];
+    return [standardTime componentsSeparatedByString:@" "];
+}
 @end

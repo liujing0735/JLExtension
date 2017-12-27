@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+Extension.h"
+#import "NSString+Extension.h"
 
 @implementation NSDictionary (Extension)
 
@@ -120,33 +121,35 @@
     }
     return @"¥0";
 }
+
 - (NSString *)dateForKey:(NSString *)key {
     if ([self.allKeys containsObject:key]) {
         id value = [self objectForKey:key];
         if ([value isKindOfClass:[NSString class]]) {
-            NSTimeInterval timeString = [(NSString *)value doubleValue];
-            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-            formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
-            [formatter setDateStyle:NSDateFormatterMediumStyle];
-            [formatter setTimeStyle:NSDateFormatterShortStyle];
-            [formatter setDateFormat:@"YYYY-MM-dd"];
-
-            NSDate* date = [NSDate dateWithTimeIntervalSince1970:timeString];
-            return [formatter stringFromDate:date];
+            NSString *timeString = (NSString *)value;
+            return [timeString timestampToStandardtime];
         }
         if ([value isKindOfClass:[NSNumber class]]) {
-            NSTimeInterval timeString = [(NSNumber *)value doubleValue];
-            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-            formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
-            [formatter setDateStyle:NSDateFormatterMediumStyle];
-            [formatter setTimeStyle:NSDateFormatterShortStyle];
-            [formatter setDateFormat:@"YYYY-MM-dd"];
-            
-            NSDate* date = [NSDate dateWithTimeIntervalSince1970:timeString];
-            return [formatter stringFromDate:date];
+            NSString *timeString = [(NSNumber *)value stringValue];
+            return [timeString timestampToStandardtime];
         }
     }
-    return @"0000-00-00";
+    return @"0000-00-00 00:00:00";
+}
+
+- (NSArray *)datesForKey:(NSString *)key {
+    if ([self.allKeys containsObject:key]) {
+        id value = [self objectForKey:key];
+        if ([value isKindOfClass:[NSString class]]) {
+            NSString *timeString = (NSString *)value;
+            return [timeString timestampToStandardtimes];
+        }
+        if ([value isKindOfClass:[NSNumber class]]) {
+            NSString *timeString = [(NSNumber *)value stringValue];
+            return [timeString timestampToStandardtimes];
+        }
+    }
+    return @[@"0000-00-00", @"00:00:00"];
 }
 
 - (void)createPropertyCode

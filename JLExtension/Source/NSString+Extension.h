@@ -216,4 +216,18 @@
 - (NSString *)decimalToBinary;
 
 - (NSData *)stringToData;
+
+/**
+ 时间戳转标准时间
+
+ @return 标准时间 YYYY-MM-dd HH:mm:ss
+ */
+- (NSString *)timestampToStandardtime;
+
+/**
+ 时间戳转标准时间
+ 
+ @return 标准时间数组 @[YYYY-MM-dd, HH:mm:ss]
+ */
+- (NSArray *)timestampToStandardtimes;
 @end

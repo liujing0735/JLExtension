@@ -51,4 +51,20 @@
 - (NSString *)stringAtIndex:(NSUInteger)index;
 
 - (NSString *)RMBAtIndex:(NSUInteger)index;
+
+/**
+ 从数组中取出时间戳并转为标准时间
+ 
+ @param index 序列号
+ @return 标准时间 YYYY-MM-dd HH:mm:ss
+ */
+- (NSString *)dateAtIndex:(NSUInteger)index;
+
+/**
+ 从数组中取出时间戳并转为标准时间数组
+ 
+ @param index 序列号
+ @return 标准时间数组 @[YYYY-MM-dd, HH:mm:ss]
+ */
+- (NSArray *)datesAtIndex:(NSUInteger)index;
 @end
