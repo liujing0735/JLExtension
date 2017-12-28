@@ -29,7 +29,13 @@
     if (!hud) {
         hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     }
-    hud.label.text = text;
+    if ([text length] > 18) {
+        hud.detailsLabel.text = text;
+        hud.detailsLabel.adjustsFontSizeToFitWidth = YES;
+    }else {
+        hud.label.text = text;
+        hud.label.adjustsFontSizeToFitWidth = YES;
+    }
     hud.mode = MBProgressHUDModeCustomView;
     if (delay > 0.0) {
         hud.removeFromSuperViewOnHide = YES;

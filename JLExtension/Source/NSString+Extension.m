@@ -443,6 +443,7 @@
 - (NSString *)timestampToStandardtime {
     NSTimeInterval secs = self.doubleValue;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
     [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:secs];
     return [formatter stringFromDate:date];
