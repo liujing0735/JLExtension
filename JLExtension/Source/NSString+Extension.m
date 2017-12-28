@@ -453,4 +453,14 @@
     NSString *standardTime = [self timestampToStandardtime];
     return [standardTime componentsSeparatedByString:@" "];
 }
+
+- (NSString *)URLEncodeString {
+    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)self,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8));
+    return encodedString;
+}
+
+- (NSString *)URLDecodeString {
+    NSString *decodedString = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(__bridge CFStringRef)self,CFSTR(""),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    return decodedString;
+}
 @end

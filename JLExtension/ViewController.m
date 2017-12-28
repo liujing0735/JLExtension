@@ -17,6 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /*
+    NSString *url = @"中文中文&English";
+    NSLog(@"URLEncode %@",[url URLEncodeString]);
+    NSLog(@"URLDecode %@",[[url URLEncodeString] URLDecodeString]);
+    
     NSLog(@"当前时间 %@",[NSDate currentTime]);
     NSLog(@"当前时间戳 %@",[NSDate currentTimestamp]);
     NSLog(@"时间戳转标准时间 %@",[[NSDate currentTimestamp] timestampToStandardtime]);
@@ -99,6 +105,7 @@
     }];
     NSLog(@"当前设备的WWAN的IP地址(无线广域网IP): %@", [JLDeviceInfo IPAdressForWWAN]);
     NSLog(@"当前设备的WiFi的IP地址(无线局域网IP): %@", [JLDeviceInfo IPAdressForWiFi]);
+    */
 }
 
 - (void)didReceiveMemoryWarning {

@@ -230,4 +230,8 @@
  @return 标准时间数组 @[YYYY-MM-dd, HH:mm:ss]
  */
 - (NSArray *)timestampToStandardtimes;
+
+- (NSString *)URLEncodeString;
+
+- (NSString *)URLDecodeString;
 @end
