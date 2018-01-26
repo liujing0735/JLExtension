@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*
+    
     NSString *url = @"中文中文&English";
     NSLog(@"URLEncode %@",[url URLEncodeString]);
     NSLog(@"URLDecode %@",[[url URLEncodeString] URLDecodeString]);
@@ -47,14 +47,16 @@
     NSString *string = [dictionary stringForKey:@"NSString"];
     NSArray *array = [dictionary arrayForKey:@"NSArray"];
     NSString *date = [dictionary dateForKey:@"NSDate"];
-    NSArray *dates = [dictionary datesForKey:@"NSDate"];
-    NSLog(@"存在的字符串：%@ 存在的数组：%@ 存在时间：%@ 时间数组 %@", string, array, date, dates);
+    NSLog(@"存在的字符串：%@ 存在的数组：%@ 存在的时间：%@", string, array, date);
     // 取到不存在的字符
     NSString *stringNot = [dictionary stringForKey:@"NSStringNot"];
     // 取到不存在的数组
     NSArray *arrayNot = [dictionary arrayForKey:@"NSArrayNot"];
     NSLog(@"不存在的字符串：%@ 不存在的数组：%@", stringNot, arrayNot);
+    // 数组越界取值，不会闪退
+    string = [array stringAtIndex:3];
     
+    /*
     // 校验密码强度
     NSArray *pwds = @[@"1234",@"123456",@"QQ1234",@"QQ123456",@"qq1234QQ"];
     for (NSString *pwd in pwds) {
