@@ -175,8 +175,8 @@
     NSMutableDictionary * options = [[NSMutableDictionary alloc] init];
     [options setObject:pwd forKey:(__bridge id)kSecImportExportPassphrase];
     CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
-    OSStatus status = SecPKCS12Import((__bridge CFDataRef) p12Data, (__bridge CFDictionaryRef)options, &items);
-    if (status == noErr && CFArrayGetCount(items) > 0) {
+    int status = SecPKCS12Import((__bridge CFDataRef) p12Data, (__bridge CFDictionaryRef)options, &items);
+    if (status == 0 && CFArrayGetCount(items) > 0) {
         CFDictionaryRef identityDict = CFArrayGetValueAtIndex(items, 0);
         SecIdentityRef identityApp = (SecIdentityRef)CFDictionaryGetValue(identityDict, kSecImportItemIdentity);
         status = SecIdentityCopyPrivateKey(identityApp, &key);
@@ -209,7 +209,7 @@
         }
         
         size_t outlen = block_size;
-        OSStatus status = SecKeyEncrypt(keyRef,
+        int status = SecKeyEncrypt(keyRef,
                                kSecPaddingPKCS1,
                                srcbuf + idx,
                                data_len,
@@ -249,7 +249,7 @@
         }
         
         size_t outlen = block_size;
-        OSStatus status = SecKeyDecrypt(keyRef,
+        int status = SecKeyDecrypt(keyRef,
                                kSecPaddingNone,
                                srcbuf + idx,
                                data_len,
