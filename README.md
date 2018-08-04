@@ -21,6 +21,22 @@ step2: 导入.h文件
 #import <JLExtension/JLExtension.h>
 
 ## 使用示例
+### NSDictionary和NSArray取值
+```
+    NSDictionary *dictionary = @{@"NSString":@"string",@"NSArray":@[@"value1",@"value2"],@"NSDate":@"1514337947"};
+    NSString *string = [dictionary stringForKey:@"NSString"];
+    NSArray *array = [dictionary arrayForKey:@"NSArray"];
+    NSString *date = [dictionary dateForKey:@"NSDate"];
+    NSLog(@"存在的字符串：%@ 存在的数组：%@ 存在的时间：%@", string, array, date);
+    // 字典取到不存在的字符，不会闪退
+    NSString *stringNot = [dictionary stringForKey:@"NSStringNot"];
+    // 字典取到不存在的数组，不会闪退
+    NSArray *arrayNot = [dictionary arrayForKey:@"NSArrayNot"];
+    NSLog(@"不存在的字符串：%@ 不存在的数组：%@", stringNot, arrayNot);
+    
+    // 数组越界取值，不会闪退
+    string = [array stringAtIndex:3];
+```
 ### 为视图添加个别方向的圆角
 ```
     // 在UILabel左上角画圆
