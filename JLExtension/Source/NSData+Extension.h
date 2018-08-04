@@ -27,6 +27,13 @@ static NSString *const kInitVector = @"16-Bytes--String";
 - (NSString *)dataToString;
 
 /**
+ NSData 转 NSString
+ 
+ @return NSString类型的字符串，十六进制形式
+ */
+- (NSString *)dataToHexString;
+
+/**
  AES256 加密算法
 
  @param key 加密key

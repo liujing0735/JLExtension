@@ -32,6 +32,12 @@
 #define NSLog(...)
 #endif
 
+#ifdef DEBUG
+#define NSDeBugString(...) [NSString stringWithFormat:@"Debug:%@", __VA_ARGS__]
+#else
+#define NSDeBugString(...) [NSString stringWithFormat:@"Release:%@", __VA_ARGS__]
+#endif
+
 #ifndef JLExtension_h
 #define JLExtension_h
 

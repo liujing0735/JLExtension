@@ -455,7 +455,14 @@
 }
 
 - (NSString *)URLEncodeString {
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)self,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8));
+    NSString *characters = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\| ";
+    
+    if (@available(iOS 9.0, *)) {
+        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:characters] invertedSet];
+        NSString *encodedString = [self stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+        return encodedString;
+    }
+    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)self,NULL,(CFStringRef)characters,kCFStringEncodingUTF8));
     return encodedString;
 }
 

@@ -26,8 +26,10 @@
 
 - (void)showHUDWithText:(NSString *)text delay:(NSTimeInterval)delay {
     MBProgressHUD *hud = [MBProgressHUD HUDForView:self];
-    if (!hud) {
+    if (!hud) {// create
         hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    }else {// 
+        delay += 2.0;
     }
     if ([text length] > 18) {
         hud.detailsLabel.text = text;

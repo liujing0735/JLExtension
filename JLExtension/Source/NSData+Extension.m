@@ -46,6 +46,17 @@
     return string;
 }
 
+- (NSString *)dataToHexString {
+    Byte *bytes = (Byte *)[self bytes];
+    NSString *result = @"";
+    for (int i = 0;i < [self length]; i++) {
+        NSString *string = [NSString stringWithFormat:@"%02x",bytes[i]&0xff];
+        result = [NSString stringWithFormat:@"%@%@",result,string];
+    }
+    //NSLog(@"%@ length: %lu", result, (unsigned long)[result length]);
+    return result;
+}
+
 - (NSData *)aes256EncryptWithKey:(NSString *)key {
     char keyPtr[kCCKeySizeAES256+1];
     bzero(keyPtr, sizeof(keyPtr));
