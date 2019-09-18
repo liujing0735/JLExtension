@@ -176,7 +176,7 @@ step2: 导入.h文件
  @param index 序列号
  @return 序列号在数组范围时返回实际的值，不存在时返回@[]
  */
-- (NSDictionary *)arrayAtIndex:(NSUInteger)index;
+- (NSArray *)arrayAtIndex:(NSUInteger)index;
 
 /**
  从数组中取出一个字符串
