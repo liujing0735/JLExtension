@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JLExtension"
-  s.version      = "0.2.0"
+  s.version      = "1.0.1"
   s.summary      = "To prevent an array, avoid the dictionary values flash back."
 
   # This description is used to generate tags and improve search results.
